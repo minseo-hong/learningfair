@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="content">
-    <h2 class="text-center my-4">
+    <h2 class="text-center my-5">
         <a href="/" class="link-dark">
             SUMMARIZE ENGLISH
         </a>
     </h2>
     <form method="POST">
         {% csrf_token %}
-        <div class="mb-3">
+        <div class="ms-2 mb-3">
             <label for="article" class="fw-bold">영어 본문</label>
         </div>
         <textarea class="article-input form-control" name="article" id="article"
