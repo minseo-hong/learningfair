@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content">
+    <h2 class="text-center my-4">
+        <a href="/" class="link-dark">
+            SUMMARIZE ENGLISH
+        </a>
+    </h2>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="article" class="fw-bold">영어 본문</label>
+        </div>
+        <textarea class="article-input form-control" name="article" id="article"
+                  placeholder="요약하고 싶은 영어 본문을 입력해주세요." rows="8">{{ article }}</textarea>
+        <div class="mt-3 mb-4 d-flex justify-content-center">
+            <input type="submit" class="start-btn btn btn-primary" value="START"
+                data-ispost="{{ is_post|default_if_none:'' }}"/>
+        </div>
+    </form>
+    {% if is_completed %}
+    <div class="alert alert-primary" role="alert">
+      {{ article }}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
